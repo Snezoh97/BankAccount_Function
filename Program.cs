@@ -37,17 +37,18 @@ namespace account
                 a = Console.ReadLine();
                 return a;
             }
-        static void Validation(string pass)
+        static Boolean Validation(string pass)
         {
 
             if (pass != password)
             {
-
-                Console.WriteLine(" IGAMA LOKUGQITHISA ALILUNGANGA,");
-                Console.WriteLine("__PHINDA UFAKE KWAKHONA");
-                password = Console.ReadLine();
-
+               return false;
             }
+            else
+            {
+                return true;
+            }
+               
         }
         static void Deposit()
         {
@@ -56,13 +57,22 @@ namespace account
             Console.WriteLine();
             Console.WriteLine(" NCEDA UFAKE INOMBOLO YOKUVULA ");
             String password1 = Console.ReadLine();
-            Validation(password1);
+            if (Validation(password1)== true) { 
             Console.WriteLine(" FAKA IMALI ");
             Double amount = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine(" INGABA UFUNA UKUBONISA IBHALANSI YAKHO ?");
             string Answer = Console.ReadLine();
             Console.WriteLine(" IBHALANSI :  R" + (amount + Balance));
+                }
+            else
+            {
+                Console.WriteLine(" IGAMA LOKUGQITHISA ALILUNGANGA,");
+                Console.WriteLine("__PHINDA UFAKE KWAKHONA");
+                password = Console.ReadLine();
+
+            }
+            }
 
         }
         static void Withdraw()
@@ -72,12 +82,20 @@ namespace account
             Console.WriteLine();
             Console.WriteLine(" NCEDA UFAKE INOMBOLO YOKUVULA ");
             String password1 = Console.ReadLine();
-            Validation(password1);
+           if (Validation(password1)== true) { 
             Double Amount;
             Console.WriteLine(" BHALA IMALI UZAKUYIKHUPHA");
             Amount = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine(" IBHALANSI : R" + (Balance - Amount));
-        }
+                }
+          else
+            {
+                Console.WriteLine(" IGAMA LOKUGQITHISA ALILUNGANGA,");
+                Console.WriteLine("__PHINDA UFAKE KWAKHONA");
+                password = Console.ReadLine();
+
+            }
+           }
 
         static void Main(string[] args)
             {
